@@ -1,8 +1,20 @@
-## Put comments here that give an overall description of what your
-## functions do
+## this pair of functions takes a matrix x and provides tools to invert that
+## matrix via the solve() function with allowances for when we have already
+## solved the inverse of that matrix
+## #######################
+## execution instructions:
+## #######################
+## given: a matrix x
+## first: run makeCacheMatrx(x) 
+    # and assign to some object "o" so that we can set up conditions for retrieving
+    # a cached value when necessary
+## second: run cacheSolve(o)
+    # one of two things will happen
+        # 1: inverse will be calculated (if no cached inverse exists)
+        # 2: inverse will be retrieved from cache (preceded by a message 
+            # "getting cached data...")
 
 ## This function creates a special "matrix" object that can cache its inverse
-
 makeCacheMatrix <- function(x = matrix()) {
     # set value of matrix
     m <- NULL
@@ -30,7 +42,6 @@ makeCacheMatrix <- function(x = matrix()) {
 ## makeCacheMatrix above. If the inverse has already been calculated 
 ## (and the matrix has not changed), then cacheSolve should retrieve the 
 ## inverse from the cache.
-
 cacheSolve <- function(x, ...) {
     m <- x$getInv()
     
